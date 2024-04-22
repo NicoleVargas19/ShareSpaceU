@@ -17,8 +17,18 @@ struct MainView: View {
                         .navigationTitle("ShareSpaceU")
                         .navigationBarTitleDisplayMode(.inline)
                         .frame(maxWidth: .infinity)
-                        
-                        .toolbarBackground(.blue,
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Text("")
+                            }
+                            ToolbarItem(placement: .principal) {
+                                Text("ShareSpaceU").foregroundColor(.white)
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Text("")
+                            }
+                        }
+                        .toolbarBackground(.black,
                                            for: .navigationBar)
                         .toolbarBackground(.visible,
                                            for: .navigationBar)
@@ -26,11 +36,22 @@ struct MainView: View {
                     .tabItem {
                         Label("Home", systemImage: "person.crop.circle.fill.badge.plus")           }
                 NavigationStack {
-                    Message()
+                    MessageView()
                     .navigationTitle("ShareSpaceU")
                     .navigationBarTitleDisplayMode(.inline)
                     .frame(maxWidth: .infinity)
-                    .toolbarBackground(.blue,
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Text("")
+                        }
+                        ToolbarItem(placement: .principal) {
+                            Text("ShareSpaceU").foregroundColor(.white)
+                        }
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Text("")
+                        }
+                    }
+                    .toolbarBackground(.black,
                                        for: .navigationBar)
                     .toolbarBackground(.visible,
                                        for: .navigationBar)
@@ -45,7 +66,18 @@ struct MainView: View {
                         .navigationTitle("ShareSpaceU")
                         .navigationBarTitleDisplayMode(.inline)
                         .frame(maxWidth: .infinity)
-                        .toolbarBackground(.blue,
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Text("")
+                            }
+                            ToolbarItem(placement: .principal) {
+                                Text("ShareSpaceU").foregroundColor(.white)
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Text("")
+                            }
+                        }
+                        .toolbarBackground(.black,
                                            for: .navigationBar)
                         .toolbarBackground(.visible,
                                            for: .navigationBar)
@@ -54,7 +86,7 @@ struct MainView: View {
                         Label("Profile", systemImage: "person.crop.circle")
                     }
             }
-            .toolbarBackground(.blue, for: .tabBar)
+            .toolbarBackground(.black, for: .tabBar)
             .toolbarBackground(.visible, for: .tabBar)
             .toolbarColorScheme(.dark, for: .tabBar)
             
