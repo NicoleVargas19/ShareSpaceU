@@ -13,7 +13,7 @@ struct MainView: View {
         TabView {
             Group {
                 NavigationStack {
-                    HomeView()
+                    HomeView(viewModel: UserViewModel(users: []))
                         .navigationTitle("ShareSpaceU")
                         .navigationBarTitleDisplayMode(.inline)
                         .frame(maxWidth: .infinity)

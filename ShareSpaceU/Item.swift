@@ -23,10 +23,11 @@ import SwiftData
 
 
 @Model
-final class Item: Identifiable {
+final class SSUser: Identifiable {
     
     var id: String
     var nickName: String
+    var age: Int
     var gender: String
     var idealRentalArea: String
     var idealRentalPrice: Int
@@ -35,10 +36,11 @@ final class Item: Identifiable {
     var selfDescription: String
     var hopeRoommatesAre: String
     
-    init(nickName: String, gender: String, idealRentalArea: String, idealRentalPrice: Int,
+    init(nickName: String, age: Int, gender: String, idealRentalArea: String, idealRentalPrice: Int,
          idealRentalLayout: String, restTime: String, selfDescription: String, hopeRoommatesAre: String) {
         self.id = UUID().uuidString
         self.nickName = nickName
+        self.age = age
         self.gender = gender
         self.idealRentalArea = idealRentalArea
         self.idealRentalPrice = idealRentalPrice
