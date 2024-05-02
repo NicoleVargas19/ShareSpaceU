@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A8A87302BE329D600F6999F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8A872F2BE329D600F6999F /* ImagePicker.swift */; };
 		FE9A01382BD0D67200D09441 /* ShareSpaceUApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9A01372BD0D67200D09441 /* ShareSpaceUApp.swift */; };
 		FE9A013A2BD0D67200D09441 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9A01392BD0D67200D09441 /* ContentView.swift */; };
 		FE9A013C2BD0D67200D09441 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9A013B2BD0D67200D09441 /* Item.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A8A872F2BE329D600F6999F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		FE9A01342BD0D67200D09441 /* ShareSpaceU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareSpaceU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE9A01372BD0D67200D09441 /* ShareSpaceUApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSpaceUApp.swift; sourceTree = "<group>"; };
 		FE9A01392BD0D67200D09441 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				FE9A014E2BD0D79700D09441 /* ProfileView.swift */,
+				8A8A872F2BE329D600F6999F /* ImagePicker.swift */,
 				FE9A014C2BD0D76000D09441 /* MessageView.swift */,
 				FE9A014A2BD0D73300D09441 /* MainView.swift */,
 				FE9A01482BD0D71100D09441 /* HomeView.swift */,
@@ -159,6 +162,7 @@
 				FE9A013C2BD0D67200D09441 /* Item.swift in Sources */,
 				FE9A014D2BD0D76000D09441 /* MessageView.swift in Sources */,
 				FE9A014B2BD0D73300D09441 /* MainView.swift in Sources */,
+				8A8A87302BE329D600F6999F /* ImagePicker.swift in Sources */,
 				FE9A014F2BD0D79700D09441 /* ProfileView.swift in Sources */,
 				FE9A01382BD0D67200D09441 /* ShareSpaceUApp.swift in Sources */,
 			);
@@ -290,8 +294,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShareSpaceU/Preview Content\"";
-				DEVELOPMENT_TEAM = A4Q7RH63Q8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -328,8 +333,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ShareSpaceU/Preview Content\"";
-				DEVELOPMENT_TEAM = A4Q7RH63Q8;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
