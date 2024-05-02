@@ -77,7 +77,7 @@ struct HomeView: View {
                 } label: {
                     Image(systemName: "x.circle")
                         .resizable()
-                        .frame(width: 65, height: 65) // Set the size of the circle
+                        .frame(width: 65, height: 65)
                         .foregroundColor(.white)
                         .background(Color.red)
                         .clipShape(Circle())
@@ -88,7 +88,7 @@ struct HomeView: View {
                 } label: {
                     Image(systemName: "checkmark.circle.fill")
                         .resizable()
-                        .frame(width: 60, height: 60) // Set the size of the circle
+                        .frame(width: 60, height: 60)
                         .foregroundColor(.green)
                         .background(Color.white)
                         .clipShape(Circle())
@@ -149,5 +149,7 @@ struct HomeView: View {
 }
 
 // TO DO:
-// add functionality with SwiftData
+// 1. add functionality with SwiftData
+// 2. add two views: recommendations and pending requests
 // Each user should have a list of accepted reccomendations ? -> add this attribute to SSUser class?
+
