@@ -9,11 +9,12 @@ import Foundation
 import SwiftUI
 
 struct MainView: View {
+    @Environment(\.modelContext) private var modelContext
     var body: some View {
         TabView {
             Group {
                 NavigationStack {
-                    HomeView(viewModel: UserViewModel(users: []))
+                    HomeView()
                         .navigationTitle("ShareSpaceU")
                         .navigationBarTitleDisplayMode(.inline)
                         .frame(maxWidth: .infinity)

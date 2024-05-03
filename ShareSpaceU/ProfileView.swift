@@ -9,11 +9,13 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileView: View {
+    @Environment(\.modelContext) private var modelContext
     @StateObject var imagePicker = ImagePicker()
     private var frameSize: CGFloat = 222
     // @State var nickname: String
     // @State var age: Int
     // @State var hope: String
+   
     
     var body: some View {
         VStack {
@@ -46,9 +48,12 @@ struct ProfileView: View {
             }
             .padding(30)
             
+            
             VStack {
+                
                 HStack {
                     Text("Nickname:")
+                    
                     // TextField("Enter your nickname", text: $nickname)
                     Spacer()
                 }
@@ -87,6 +92,12 @@ struct ProfileView: View {
                 }
             }
             .padding(.leading, 50)
+           
         }
     }
+}
+
+
+#Preview {
+    ProfileView()
 }

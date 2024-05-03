@@ -5,50 +5,33 @@
 
 import Foundation
 import SwiftUI
-import SwiftUI
-
-class UserViewModel: ObservableObject {
-    @Published var users: [SSUser]
-    @Published var acceptedUsers: [SSUser] = []
-    @Published var rejectedUsers: [SSUser] = []
-    
-    init(users: [SSUser]) {
-        self.users = users
-    }
-    
-    func acceptUser(at index: Int) {
-        if index < users.count {
-            acceptedUsers.append(users[index])
-        }
-    }
-    
-    func rejectUser(at index: Int) {
-        if index < users.count {
-            rejectedUsers.append(users[index])
-        }
-    }
-}
+import SwiftData
 
 
 struct HomeView: View {
-    @State var fanCards: Bool = false
-    @State var cardSelected = false
-    @State var tappedIndex: Int = 0
-    @Namespace var cardAnimation
+    @Environment(\.modelContext) private var modelContext
+//    @Query var users: [SSUser]
     @State private var offset: CGFloat = 0
     @State private var index = 0
+    @State private var shakeAmount: CGFloat = 10
     let spacing: CGFloat = 10
-    @ObservedObject var viewModel: UserViewModel
+    let users = [
+        SSUser(image: "OskiAvatar", nickName: "Oski", age: 19, gender: "M", idealRentalArea: "Northside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1B", restTime: "11:00 pm", selfDescription: "Junior", hopeRoommatesAre: "Nice", acceptedUsers: []),
+        SSUser(image: "JustinAvatar", nickName: "Justin", age: 19, gender: "M", idealRentalArea: "Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1B", restTime: "11:00 pm", selfDescription: "Sophomore", hopeRoommatesAre: "Kind", acceptedUsers: []),
+        SSUser(image: "KennyAvatar",nickName: "Kenny", age: 19, gender: "M", idealRentalArea: "Southside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1Ba", restTime: "11:00 pm", selfDescription: "Sophomore", hopeRoommatesAre: "Clean&organized", acceptedUsers: [])
+        ]
+   
 
-    
     var body: some View {
-        VStack(spacing: 40) {
-            Spacer().frame(height: 20)
+            
             GeometryReader { geometry in
+                VStack(spacing: 25) {
+                    Spacer().frame(height: 15)
+                    Text("Recommendations").font(.title2)
                 ScrollView(.horizontal, showsIndicators: true) {
                             HStack() {
-                            ForEach(self.viewModel.users.indices, id: \.self) { index in
-                                    CardView(user: self.viewModel.users[index])
+                            ForEach(users.indices, id: \.self) { index in
+                                    CardView(user: users[index])
                                     .frame(width: geometry.size.width)
                                 }
                             }
@@ -61,7 +44,7 @@ struct HomeView: View {
                                         self.offset = value.translation.width - geometry.size.width * CGFloat(self.index)
                                     })
                                     .onEnded({ value in
-                                        if -value.predictedEndTranslation.width > geometry.size.width / 2, self.index < self.viewModel.users.count - 1 {
+                                        if -value.predictedEndTranslation.width > geometry.size.width / 2, self.index < users.count - 1 {
                                             self.index += 1
                                         }
                                         if value.predictedEndTranslation.width > geometry.size.width / 2, self.index > 0 {
@@ -70,36 +53,49 @@ struct HomeView: View {
                                         withAnimation { self.offset = -(geometry.size.width + self.spacing) * CGFloat(self.index) }
                                     })
                             )
-            }
-            HStack(spacing: 80){
-                Button {
-                    self.viewModel.rejectUser(at: self.index)
-                } label: {
-                    Image(systemName: "x.circle")
-                        .resizable()
-                        .frame(width: 65, height: 65)
-                        .foregroundColor(.white)
-                        .background(Color.red)
-                        .clipShape(Circle())
+                HStack(spacing: 90){
+                    Button {
+                        if self.index < users.count - 1 {
+                            self.index += 1
+                            withAnimation { self.offset = -(geometry.size.width + self.spacing) * CGFloat(self.index) }
+                        }
+                        
+                    } label: {
+                        Image(systemName: "x.circle")
+                            .resizable()
+                            .frame(width: 65, height: 65)
+                            .foregroundColor(.white)
+                            .background(Color.red)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    Button {
+                        if self.index < users.count - 1 {
+                            self.index += 1
+                            withAnimation { self.offset = -(geometry.size.width + self.spacing) * CGFloat(self.index) }
+                        }
+    //                    let newUser = users[self.index]
+    //                    currentUser.acceptedUsers.append(newUser)
+    //                    do {
+    //                        try modelContext.save()
+    //                    } catch {
+    //                        print("Error saving context: \(error)")
+    //                    }
+                    } label: {
+                        Image(systemName: "checkmark.circle.fill")
+                            .resizable()
+                            .frame(width: 60, height: 60)
+                            .foregroundColor(.green)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
-                .buttonStyle(PlainButtonStyle())
-                Button {
-                    self.viewModel.acceptUser(at: self.index)
-                } label: {
-                    Image(systemName: "checkmark.circle.fill")
-                        .resizable()
-                        .frame(width: 60, height: 60)
-                        .foregroundColor(.green)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                }
-                .buttonStyle(PlainButtonStyle())
+                Spacer().frame(height: 2)
+            
             }
-            Spacer().frame(height: 0.5)
-        
         }
-       
-        
+            
                
     }
     
@@ -117,7 +113,7 @@ struct HomeView: View {
                 .overlay {
                     VStack{
                         Spacer()
-                        Image("OskiAvatar")
+                        Image(user.image)
                             .resizable()
                             .scaledToFill()
                             .frame(width: 150, height: 150)
@@ -142,14 +138,14 @@ struct HomeView: View {
 
 
 #Preview {
-    HomeView(viewModel: UserViewModel(users: [
-               SSUser(nickName: "Oski", age: 19, gender: "M", idealRentalArea: "Northside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1Ba", restTime: "11:00 pm", selfDescription: "Junior", hopeRoommatesAre: "Nice"),
-               SSUser(nickName: "Bear", age: 19, gender: "M", idealRentalArea: "Northside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1Ba", restTime: "11:00 pm", selfDescription: "Sophmore", hopeRoommatesAre: "kind")
-           ]))
+    HomeView()
 }
 
 // TO DO:
 // 1. add functionality with SwiftData
 // 2. add two views: recommendations and pending requests
 // Each user should have a list of accepted reccomendations ? -> add this attribute to SSUser class?
+
+// buttons functionality: if x -> then show next card
+// if yes -> add user to matches
 

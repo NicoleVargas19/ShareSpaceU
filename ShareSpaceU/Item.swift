@@ -26,6 +26,7 @@ import SwiftData
 final class SSUser: Identifiable {
     
     var id: String
+    var image: String
     var nickName: String
     var age: Int
     var gender: String
@@ -35,10 +36,12 @@ final class SSUser: Identifiable {
     var restTime: String
     var selfDescription: String
     var hopeRoommatesAre: String
+    var acceptedUsers: [SSUser]
     
-    init(nickName: String, age: Int, gender: String, idealRentalArea: String, idealRentalPrice: Int,
-         idealRentalLayout: String, restTime: String, selfDescription: String, hopeRoommatesAre: String) {
+    init(image: String, nickName: String, age: Int, gender: String, idealRentalArea: String, idealRentalPrice: Int,
+         idealRentalLayout: String, restTime: String, selfDescription: String, hopeRoommatesAre: String, acceptedUsers: [SSUser]) {
         self.id = UUID().uuidString
+        self.image = image
         self.nickName = nickName
         self.age = age
         self.gender = gender
@@ -48,6 +51,9 @@ final class SSUser: Identifiable {
         self.restTime = restTime
         self.selfDescription = selfDescription
         self.hopeRoommatesAre = hopeRoommatesAre
+        self.acceptedUsers = acceptedUsers
         
     }
 }
+
+
