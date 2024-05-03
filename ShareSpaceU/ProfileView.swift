@@ -12,10 +12,15 @@ struct ProfileView: View {
     @Environment(\.modelContext) private var modelContext
     @StateObject var imagePicker = ImagePicker()
     private var frameSize: CGFloat = 222
-    // @State var nickname: String
-    // @State var age: Int
-    // @State var hope: String
-   
+    @State private var nickName: String = ""
+    @State private var age: String = ""
+    @State private var gender: String = ""
+    @State private var idealRentalArea: String = ""
+    @State private var idealRentalPrice: String = ""
+    @State private var idealRentalLayout: String = ""
+    @State private var restTime: String = ""
+    @State private var selfDescription: String = ""
+    @State private var hopeRoommatesAre: String = ""
     
     var body: some View {
         VStack {
@@ -53,51 +58,68 @@ struct ProfileView: View {
                 
                 HStack {
                     Text("Nickname:")
-                    
-                    // TextField("Enter your nickname", text: $nickname)
+                    TextField("Nickname", text: $nickName)
                     Spacer()
                 }
                 HStack {
                     Text("Age:")
+                    TextField("Age", text: $age)
                     Spacer()
                 }
                 HStack {
                     Text("Gender")
+                    TextField("Gender", text: $gender)
                     Spacer()
                 }
                 HStack {
                     Text("Ideal Rental Area:")
+                    TextField("Ideal Rental Area", text: $idealRentalArea)
                     Spacer()
                 }
                 HStack {
                     Text("Ideal Rental Price:")
+                    TextField("Ideal Rental Price", text: $idealRentalPrice)
                     Spacer()
                 }
                 HStack {
                     Text("Ideal Layout:")
+                    TextField("Ideal Layout", text: $idealRentalLayout)
                     Spacer()
                 }
                 HStack {
                     Text("Rest Time:")
+                    TextField("Rest Time", text: $restTime)
                     Spacer()
                 }
                 HStack {
                     Text("Self Description:")
+                    TextField("Self Description", text: $selfDescription)
                     Spacer()
                 }
                 HStack {
                     Text("Hope Roommates Are:")
-                    // TextField("'Super nice and fun to be around'", text: $hope)
+                    TextField("Hope Roommates Are", text: $hopeRoommatesAre)
                     Spacer()
                 }
             }
-            .padding(.leading, 50)
-           
+            .padding(.leading, 40)
+            Button {
+//                let newUser = SSUser(image: "", nickName: nickName, age: Int(age) ?? 0, gender: gender, idealRentalArea: idealRentalArea, idealRentalPrice: Int(idealRentalPrice) ?? 0, idealRentalLayout: idealRentalLayout, restTime: restTime, selfDescription: selfDescription, hopeRoommatesAre: hopeRoommatesAre, acceptedUsers: [])
+//                modelContext.insert(newUser)
+                
+            } label: {
+                Text("Save changes")
+                    .frame(width: 140, height: 40)
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .clipShape(RoundedRectangle(cornerSize: CGSize(width: 100, height: 10)))
+            }
+            .buttonStyle(PlainButtonStyle())
         }
     }
 }
 
-
 #Preview {
     ProfileView()
 }
+
