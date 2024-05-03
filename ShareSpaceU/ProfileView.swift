@@ -104,8 +104,13 @@ struct ProfileView: View {
             }
             .padding(.leading, 40)
             Button {
-//                let newUser = SSUser(image: "", nickName: nickName, age: Int(age) ?? 0, gender: gender, idealRentalArea: idealRentalArea, idealRentalPrice: Int(idealRentalPrice) ?? 0, idealRentalLayout: idealRentalLayout, restTime: restTime, selfDescription: selfDescription, hopeRoommatesAre: hopeRoommatesAre, acceptedUsers: [])
-//                modelContext.insert(newUser)
+ /*               let newUser = SSUser(image: "", nickName: nickName, age: Int(age) ?? 0, gender: gender, idealRentalArea: idealRentalArea, idealRentalPrice: Int(idealRentalPrice) ?? 0, idealRentalLayout: idealRentalLayout, restTime: restTime, selfDescription: selfDescription, hopeRoommatesAre: hopeRoommatesAre, acceptedUsers: [])
+                modelContext.insert(newUser)
+                do {
+                    try modelContext.save()
+                } catch {
+                    print(error.localizedDescription)
+                } */
                 
             } label: {
                 Text("Save changes")
