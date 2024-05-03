@@ -54,7 +54,7 @@ struct ProfileView: View {
             .padding(30)
             
             
-            VStack {
+            VStack(spacing: 5) {
                 
                 HStack {
                     Text("Nickname:")
