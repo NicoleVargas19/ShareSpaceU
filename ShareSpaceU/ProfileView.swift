@@ -7,6 +7,7 @@
 import Foundation
 import SwiftUI
 import PhotosUI
+import SwiftData
 
 struct ProfileView: View {
     @Environment(\.modelContext) private var modelContext
@@ -67,7 +68,7 @@ struct ProfileView: View {
                     Spacer()
                 }
                 HStack {
-                    Text("Gender")
+                    Text("Gender:")
                     TextField("Gender", text: $gender)
                     Spacer()
                 }
@@ -102,15 +103,18 @@ struct ProfileView: View {
                     Spacer()
                 }
             }
+//            .onAppear {
+//                 loadProfile()
+//            }
             .padding(.leading, 40)
             Button {
- /*               let newUser = SSUser(image: "", nickName: nickName, age: Int(age) ?? 0, gender: gender, idealRentalArea: idealRentalArea, idealRentalPrice: Int(idealRentalPrice) ?? 0, idealRentalLayout: idealRentalLayout, restTime: restTime, selfDescription: selfDescription, hopeRoommatesAre: hopeRoommatesAre, acceptedUsers: [])
-                modelContext.insert(newUser)
-                do {
-                    try modelContext.save()
-                } catch {
-                    print(error.localizedDescription)
-                } */
+//                    let newUser = SSUser(image: "", nickName: nickName, age: Int(age) ?? 0, gender: gender, idealRentalArea: idealRentalArea, idealRentalPrice: Int(idealRentalPrice) ?? 0, idealRentalLayout: idealRentalLayout, restTime: restTime, selfDescription: selfDescription, hopeRoommatesAre: hopeRoommatesAre, acceptedUsers: [])
+//                modelContext.insert(newUser)
+//                do {
+//                    try modelContext.save()
+//                } catch {
+//                    print(error.localizedDescription)
+//                }
                 
             } label: {
                 Text("Save changes")
@@ -122,7 +126,17 @@ struct ProfileView: View {
             .buttonStyle(PlainButtonStyle())
         }
     }
+//    func loadProfile() {
+//        @Query var users: SSUser
+//           do {
+//               nickName = user.nickName
+//               age = String(user.age)
+//               
+//           }
+//       }
 }
+
+
 
 #Preview {
     ProfileView()

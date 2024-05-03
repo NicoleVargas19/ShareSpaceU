@@ -16,9 +16,11 @@ struct HomeView: View {
     @State private var shakeAmount: CGFloat = 10
     let spacing: CGFloat = 10
     let users = [
-        SSUser(image: "OskiAvatar", nickName: "Oski", age: 19, gender: "M", idealRentalArea: "Northside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1B", restTime: "11:00 pm", selfDescription: "Junior", hopeRoommatesAre: "Nice", acceptedUsers: []),
+        SSUser(image: "OskiAvatar", nickName: "Oski", age: 19, gender: "M", idealRentalArea: "Northside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1B", restTime: "11:00 pm", selfDescription: "Junior", hopeRoommatesAre: "Considerate, tidy, and friendly individuals.", acceptedUsers: []),
         SSUser(image: "JustinAvatar", nickName: "Justin", age: 19, gender: "M", idealRentalArea: "Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1B", restTime: "11:00 pm", selfDescription: "Sophomore", hopeRoommatesAre: "Kind", acceptedUsers: []),
-        SSUser(image: "KennyAvatar",nickName: "Kenny", age: 19, gender: "M", idealRentalArea: "Southside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1Ba", restTime: "11:00 pm", selfDescription: "Sophomore", hopeRoommatesAre: "Clean&organized", acceptedUsers: [])
+        SSUser(image: "KennyAvatar",nickName: "Kenny", age: 19, gender: "M", idealRentalArea: "Southside Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1Ba", restTime: "11:00 pm", selfDescription: "Sophomore", hopeRoommatesAre: "Clean&organized", acceptedUsers: []),
+        SSUser(image: "AdamAvatar",nickName: "Adam", age: 19, gender: "M", idealRentalArea: "Berkeley", idealRentalPrice: 1200, idealRentalLayout: "2Bd/1Ba", restTime: "10:00 pm", selfDescription: "Freshman", hopeRoommatesAre: "Fun to be aorund", acceptedUsers: [])
+        
         ]
    
 

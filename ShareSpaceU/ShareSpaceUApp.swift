@@ -10,23 +10,23 @@ import SwiftData
 
 @main
 struct ShareSpaceUApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            SSUser.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+//    var sharedModelContainer: ModelContainer = {
+//        let schema = Schema([
+//            SSUser.self,
+//        ])
+//        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+//
+//        do {
+//            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+//        } catch {
+//            fatalError("Could not create ModelContainer: \(error)")
+//        }
+//    }()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(sharedModelContainer)
+        .modelContainer(for: [SSUser.self])
     }
 }
